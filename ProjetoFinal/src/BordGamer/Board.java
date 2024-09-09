@@ -4,6 +4,7 @@ public class Board {
     private int rows;
     private int collumns;
     private Piece[] [] pieces;
+
     public Board(int rows, int collumns) {
         this.rows = rows;
         this.collumns = collumns;
@@ -21,6 +22,13 @@ public class Board {
     public void setCollumns(int collumns) {
         this.collumns = collumns;
     }
+
+    public Piece piece(int row ,int column){
+        return pieces[row] [column];
+    }
+     public Piece piece(Position positin){ // sobreposição do metodo piece
+         return pieces[positin.getRow()] [positin.getColumn()];
+     }
 
 
 

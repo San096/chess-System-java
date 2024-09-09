@@ -6,7 +6,7 @@ public class Piece {
 
     public Piece(Board bord) {
         this.bord = bord;
-        position = null;
+        position = null;  // posição se iniciara nula 
       
     }
 
