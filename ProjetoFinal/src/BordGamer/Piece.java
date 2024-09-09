@@ -2,7 +2,7 @@ package BordGamer;
 
 public class Piece {
     protected Position position;
-    private Board bord;
+    protected Board bord;
 
     public Piece(Board bord) {
         this.bord = bord;

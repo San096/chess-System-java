@@ -30,6 +30,11 @@ public class Board {
          return pieces[positin.getRow()] [positin.getColumn()];
      }
 
+     public void placePiece(Piece piece , Position position){ // metodo colocar peça no tabuleiro
+        pieces[position.getRow()][position.getColumn()] = piece; /// na posição informado e add a peça
+        piece.position = position;
+     }
+
 
 
 

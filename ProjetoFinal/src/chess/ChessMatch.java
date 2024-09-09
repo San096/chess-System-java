@@ -1,5 +1,8 @@
 package chess;
 import BordGamer.Board;
+import BordGamer.Position;
+import ChessPiece.Rei;
+import ChessPiece.Torre;
 
 public class ChessMatch{ // partida de xadrez
 
@@ -7,6 +10,7 @@ public class ChessMatch{ // partida de xadrez
 
     public ChessMatch() {
       board = new Board(8,8); // dimensões de um tabuleiro de xadrez 
+      initialSetup();
     }
 
 
@@ -20,6 +24,12 @@ public class ChessMatch{ // partida de xadrez
         }
      }
         return mat;
+    }
+
+    private void initialSetup(){// metodo pra colocar uma peça no tabuleiro , iniciando uma partida 
+        board.placePiece(new Torre(board , Color.WHITE) , new Position (2, 1));
+        board.placePiece(new Rei(board , Color.WHITE), new Position (0 , 4));
+        board.placePiece(new Rei(board , Color.BLACK), new Position (7, 4));
     }
 
 }
