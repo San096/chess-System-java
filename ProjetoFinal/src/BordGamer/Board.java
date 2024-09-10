@@ -6,6 +6,9 @@ public class Board {
     private Piece[] [] pieces;
 
     public Board(int rows, int collumns) {
+        if (rows < 1 || collumns < 1) {
+            throw new BoradExcepition("Erro ao criar tabuleiro  e necessario ter pelomenos 1 linha e 1 coluna"); 
+        }
         this.rows = rows;
         this.collumns = collumns;
         pieces = new Piece[rows][collumns]; // a matriz iniciara com a quantidades de linha e colunas informadas 
@@ -13,26 +16,50 @@ public class Board {
     public int getRows() {
         return rows;
     }
-    public void setRows(int rows) {
-        this.rows = rows;
-    }
     public int getCollumns() {
         return collumns;
     }
-    public void setCollumns(int collumns) {
-        this.collumns = collumns;
-    }
+   
 
     public Piece piece(int row ,int column){
+        if(!positionExists(row ,column)){
+            throw new BoradExcepition("possição sem borda ");
+        }
         return pieces[row] [column];
     }
-     public Piece piece(Position positin){ // sobreposição do metodo piece
-         return pieces[positin.getRow()] [positin.getColumn()];
+     public Piece piece(Position position){ // sobreposição do metodo piece
+        if(!positionExists(position)){
+            throw new BoradExcepition("Posição fora do tabuleiro  ");
+        }
+         return pieces[position.getRow()] [position.getColumn()];
      }
 
-     public void placePiece(Piece piece , Position position){ // metodo colocar peça no tabuleiro
-        pieces[position.getRow()][position.getColumn()] = piece; /// na posição informado e add a peça
+// metodo colocar peça no tabuleiro
+     public void placePiece(Piece piece , Position position){ 
+       if (thereIsAPiece(position)) {
+        throw new BoradExcepition("Já tem uma peça nessa positção " + position);
+        
+       } 
+       /// na posição informado e add a peça
+        pieces[position.getRow()][position.getColumn()] = piece;
         piece.position = position;
+     }
+/*
+ * metodos para verificar se uma posição é valida
+ */
+     private boolean positionExists(int row , int column){
+        return row >= 0 && row < rows && column >= 0 && column < collumns;
+     }
+
+     public boolean positionExists(Position position){
+        return positionExists(position.getRow(),position.getColumn());
+     }
+
+     public boolean thereIsAPiece(Position position){
+        if(!positionExists(position)){
+            throw new BoradExcepition("Posição fora do tabuleiro  ");
+        }
+      return  piece(position) !=null;
      }
 
 

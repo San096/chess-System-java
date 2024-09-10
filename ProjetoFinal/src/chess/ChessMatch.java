@@ -3,10 +3,11 @@ import BordGamer.Board;
 import BordGamer.Position;
 import ChessPiece.Bispo;
 import ChessPiece.Cavalo;
+import ChessPiece.Piao;
 import ChessPiece.Rainha;
 import ChessPiece.Rei;
 import ChessPiece.Torre;
-import ChessPiece.Piao;
+
 
 public class ChessMatch{ // partida de xadrez
 
@@ -30,23 +31,12 @@ public class ChessMatch{ // partida de xadrez
         return mat;
     }
 
+    private void placeNewPiece(char columns ,int row, ChessPiece piece){ // metodo para criar uma nova peça 
+        board.placePiece(piece, new ChessPiece(columns , row).toPosition());
+    }
+
     private void initialSetup(){// metodo pra colocar uma peça no tabuleiro , iniciando uma partida 
-        board.placePiece(new Torre(board , Color.WHITE) , new Position (0, 0));
-        board.placePiece(new Cavalo(board , Color.WHITE) , new Position (0, 1));
-        board.placePiece(new Bispo(board , Color.WHITE) , new Position (0, 2));
-        board.placePiece(new Rainha(board , Color.WHITE) , new Position (0, 3));
-        board.placePiece(new Rei(board , Color.WHITE), new Position (0 , 4));
-        board.placePiece(new Bispo(board , Color.WHITE), new Position (0 , 5));
-        board.placePiece(new Cavalo(board , Color.WHITE), new Position (0 , 6));
-        board.placePiece(new Torre(board , Color.WHITE), new Position (0 , 7));
-        board.placePiece(new Piao(board , Color.WHITE), new Position (1, 0));
-        board.placePiece(new Piao(board , Color.WHITE), new Position (1, 1));
-        board.placePiece(new Piao(board , Color.WHITE), new Position (1, 2));
-        board.placePiece(new Piao(board , Color.WHITE), new Position (1, 3));
-        board.placePiece(new Piao(board , Color.WHITE), new Position (1, 4));
-        board.placePiece(new Piao(board , Color.WHITE), new Position (1, 5));
-        board.placePiece(new Piao(board , Color.WHITE), new Position (1, 6));
-        board.placePiece(new Piao(board , Color.WHITE), new Position (1, 7));
+        placeNewPiece('a' , 6 ,new Torre(board , Color.WHITE));
         
     }
 
