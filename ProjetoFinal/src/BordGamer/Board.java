@@ -1,5 +1,7 @@
 package BordGamer;
 
+import chess.ChessPiece;
+
 public class Board {
     private int rows;
     private int collumns;
@@ -23,7 +25,7 @@ public class Board {
 
     public Piece piece(int row ,int column){
         if(!positionExists(row ,column)){
-            throw new BoradExcepition("possição sem borda ");
+            throw new BoradExcepition("fora do tabuleiro  ");
         }
         return pieces[row] [column];
     }
@@ -37,12 +39,29 @@ public class Board {
 // metodo colocar peça no tabuleiro
      public void placePiece(Piece piece , Position position){ 
        if (thereIsAPiece(position)) {
-        throw new BoradExcepition("Já tem uma peça nessa positção " + position);
+        throw new BoradExcepition("Já tem uma peça nessa posição " + position);
         
        } 
+       
        /// na posição informado e add a peça
         pieces[position.getRow()][position.getColumn()] = piece;
         piece.position = position;
+     }
+     /*
+      * METODO REMOVER PEÇA DO TABULEIRO 
+      */
+     public Piece removePiece(Position position){
+        if(!positionExists(position)){
+            throw new BoradExcepition("Posição invalida ");
+        }
+        if(piece(position) == null){
+            return null;
+        }
+        Piece aux = piece(position);
+        aux.position = null;
+        pieces[position.getRow()][position.getColumn()]=null;
+        
+        return aux;
      }
 /*
  * metodos para verificar se uma posição é valida
@@ -61,9 +80,4 @@ public class Board {
         }
       return  piece(position) !=null;
      }
-
-
-
-
-    
 }

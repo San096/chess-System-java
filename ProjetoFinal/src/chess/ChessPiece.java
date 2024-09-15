@@ -8,7 +8,7 @@ public class ChessPiece extends Piece { // perça de xadrez herda os atirbutos d
 
     private Color color;
 
-    public ChessPiece(Board board , Color color){ // super contrutor bo
+    public ChessPiece(Board board , Color color){ // super construtor da borda do xadrez 
         super(board);
         this.color = color;
     }
@@ -17,11 +17,12 @@ public class ChessPiece extends Piece { // perça de xadrez herda os atirbutos d
         return color;
     }
 
-    public Position toPosition() {
+    public ChessPiece toPosition() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'toPosition'");
     }
 
+   
     
     
 }

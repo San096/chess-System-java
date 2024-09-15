@@ -25,12 +25,12 @@ public class ChessPosition {
     }
 
 
-     protected Position toPosition(){
-        return new Position(8-row , columns-'a'); 
+     protected Position toPosition(){ //converte a posição da matrix em posição do xadrez 
+        return new Position(8-row , columns-'a'); //subitrair a posição informado por 8 vai ser o endereço da matrix ex.. 8-8 = 0 da matrix 
      }
 
      protected static ChessPosition  fromPosition(Position position){
-        return new ChessPosition((char)('a' - position.getColumn()), 8- position.getRow());
+        return new ChessPosition((char)('a' - position.getColumn()), 8- position.getRow());//esse metodo faz o inverso do metodo de cima 
      }
 
      @Override
