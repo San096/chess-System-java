@@ -13,7 +13,7 @@ public class Cavalo extends ChessPiece {
   @Override
 
   public String toString(){
-    return "C ";
+    return this.getColor().equals(Color.WHITE) ? "C " : "c ";
   }
     
 } 

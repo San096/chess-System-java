@@ -13,7 +13,7 @@ public class Bispo extends ChessPiece {
   @Override
 
   public String toString(){
-    return "B ";
+    return this.getColor().equals(Color.WHITE) ? "B " : "b ";
   }
     
 }

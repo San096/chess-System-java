@@ -4,7 +4,7 @@ import BordGamer.Board;
 import BordGamer.Piece;
 import BordGamer.Position;
 
-public class ChessPiece extends Piece { // perça de xadrez herda os atirbutos de perças 
+public abstract class ChessPiece extends Piece { // perça de xadrez herda os atirbutos de perças 
 
     private Color color;
 
@@ -17,10 +17,13 @@ public class ChessPiece extends Piece { // perça de xadrez herda os atirbutos d
         return color;
     }
 
-    public ChessPiece toPosition() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'toPosition'");
+    protected boolean isThereOpponentPiece(Position position){
+        ChessPiece p =  (ChessPiece)getBord().piece(position);
+        return p != null && getColor() != color;
     }
+    
+
+    
 
    
     

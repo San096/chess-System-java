@@ -14,7 +14,14 @@ public class Rei extends ChessPiece {
   @Override
 
   public String toString(){
-    return "R ";
+    return this.getColor().equals(Color.WHITE) ? "R " : "r ";
+  }
+
+  @Override
+  public boolean[][] possibleMoves() {
+    boolean [][] Mat = new boolean[getBord().getRows()][getBord().getCollumns()];
+    return null;
+    
   }
     
 }

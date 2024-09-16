@@ -13,7 +13,7 @@ public class Rainha extends ChessPiece {
   @Override
 
   public String toString(){
-    return "Q ";
+    return this.getColor().equals(Color.WHITE) ? "Q " : "q ";
   }
     
 } 

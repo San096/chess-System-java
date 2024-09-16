@@ -37,7 +37,7 @@ public class Board {
      }
 
 // metodo colocar peça no tabuleiro
-     public void placePiece(Piece piece , Position position){ 
+     public void  placePiece(Piece piece , Position position){ 
        if (thereIsAPiece(position)) {
         throw new BoradExcepition("Já tem uma peça nessa posição " + position);
         
@@ -78,6 +78,6 @@ public class Board {
         if(!positionExists(position)){
             throw new BoradExcepition("Posição fora do tabuleiro  ");
         }
-      return  piece(position) !=null;
+      return piece(position) != null;
      }
 }

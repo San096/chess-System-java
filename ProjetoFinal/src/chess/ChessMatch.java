@@ -31,19 +31,17 @@ public class ChessMatch{ // partida de xadrez
         return mat;
     }
 
-    public ChessPiece performChessMove(ChessPiece sourcePosition , ChessPiece targetPosition){
-        Position source = sourcePosition.toPosition();
-        ChessPiece target = targetPosition.toPosition();
-        validateSourcePosition(source);
+    public ChessPiece performChessMove(ChessPosition source , ChessPosition target){
+        validateSourcePosition(source.toPosition());
         Piece capturedPiece = makeMove(source,target);
-        return (ChessPiece)capturedPiece;
+        return (ChessPiece) capturedPiece;
     }
 
-    private Piece makeMove(Position source, ChessPiece target){
-            Piece P = board.removePiece(source);
-            Piece capturedPiece = board.removePiece(target);
-            board.placePiece(P, target);
-            return capturedPiece;
+    private Piece makeMove(ChessPosition source, ChessPosition target){
+        Piece P = board.removePiece(source.toPosition());
+        Piece capturedPiece = board.removePiece(target.toPosition());
+        board.placePiece(P, target.toPosition());
+        return capturedPiece;
 
     }
 
@@ -51,6 +49,11 @@ public class ChessMatch{ // partida de xadrez
         if(!board.thereIsAPiece(position)){
             throw new ChessExeption("Não existe peça nessa posição ");
         }
+        if(!board.piece(position).isThereAnyPossibleMove()){
+            throw new ChessExeption("Não é possivel mexer a peça  ");
+
+        }
+
     }
 
     private void placeNewPiece(char columns ,int row, ChessPiece piece){ // metodo para criar uma nova peça 
