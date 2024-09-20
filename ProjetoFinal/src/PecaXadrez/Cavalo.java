@@ -1,12 +1,12 @@
-package ChessPiece;
+package PecaXadrez;
 
-import BordGamer.Board;
-import chess.ChessPiece;
-import chess.Color;
+import BordaGame.Borda;
+import Xadrez.ChessPiece;
+import Xadrez.Color;
 
 public class Cavalo extends ChessPiece {
 
-  public Cavalo(Board board, Color color){
+  public Cavalo(Borda board, Color color){
     super(board, color);
   }
 

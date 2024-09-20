@@ -1,13 +1,13 @@
-package ChessPiece;
+package PecaXadrez;
 
-import BordGamer.Board;
-import chess.ChessMatch;
-import chess.ChessPiece;
-import chess.Color;
+import BordaGame.Borda;
+import Xadrez.ChessMatch;
+import Xadrez.ChessPiece;
+import Xadrez.Color;
 
 public class Rei extends ChessPiece {
 
-  public Rei(Board board, Color color, ChessMatch chessMatch){
+  public Rei(Borda board, Color color, ChessMatch chessMatch){
     super(board, color);
   }
 

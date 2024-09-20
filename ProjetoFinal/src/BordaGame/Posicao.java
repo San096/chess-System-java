@@ -1,10 +1,11 @@
-package BordGamer;
+package BordaGame;
 
-public class Position {
+public class Posicao {
     protected int row;
     protected int  column;
     
-    public Position(int row, int column) {
+    public Posicao(){}
+    public Posicao(int row, int column) {
         this.row = row;
         this.column = column;
     }

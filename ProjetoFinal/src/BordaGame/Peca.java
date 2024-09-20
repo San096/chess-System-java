@@ -1,22 +1,22 @@
-package BordGamer;
+package BordaGame;
 
-public abstract class Piece {
-    protected Position position;
-    protected Board bord;
+public abstract class Peca {
+    protected Posicao position;
+    protected Borda bord;
 
-    public Piece(Board bord) {
+    public Peca(Borda bord) {
         this.bord = bord;
         position = null;  // posição se iniciara nula 
       
     }
 
-  protected Board getBord() {    // somente seja acessado pelo tabuleuiro e as subclasses das peças 
+  protected Borda getBord() {    // somente seja acessado pelo tabuleuiro e as subclasses das peças 
         return bord;
     }
 
     public abstract boolean[][] possibleMoves();
 
-    public boolean possibleMove(Position position){
+    public boolean possibleMove(Posicao position){
         return possibleMoves()[position.getRow()][position.getColumn()];
     }
 

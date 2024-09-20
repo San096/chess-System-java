@@ -1,13 +1,13 @@
-package ChessPiece;
+package PecaXadrez;
 
-import BordGamer.Board;
-import chess.ChessMatch;
-import chess.ChessPiece;
-import chess.Color;
+import BordaGame.Borda;
+import Xadrez.ChessMatch;
+import Xadrez.ChessPiece;
+import Xadrez.Color;
 
 public class Piao extends ChessPiece {
 
-  public Piao(Board board, Color color, ChessMatch chessMatch){
+  public Piao(Borda board, Color color, ChessMatch chessMatch){
     super(board, color);
   }
 

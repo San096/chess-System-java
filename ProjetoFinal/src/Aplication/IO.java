@@ -1,9 +1,9 @@
 package Aplication;
 import java.util.*;
 
-import chess.ChessExeption;
-import chess.ChessPiece;
-import chess.ChessPosition;
+import Xadrez.ChessExeption;
+import Xadrez.PecaXadrez;
+import Xadrez.ChessPosition;
 
 public class IO{
 
@@ -19,7 +19,7 @@ public class IO{
     }
  
 
-    public static void printBoard(ChessPiece[] [] pieces){
+    public static void printBoard(PecaXadrez[] [] pieces){
         for(int i = 0; i< pieces.length; i ++){
             System.out.print((1 + i ) + "  ");
             for (int j = 0 ;j < pieces.length ;j++){
@@ -32,7 +32,7 @@ public class IO{
 
     }
 
-    public static void printpiece(ChessPiece Piece){
+    public static void printpiece(PecaXadrez Piece){
         if (Piece == null){
             System.out.print("* ");
         }

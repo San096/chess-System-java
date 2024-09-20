@@ -1,12 +1,12 @@
-package ChessPiece;
+package PecaXadrez;
 
-import BordGamer.Board;
-import chess.ChessPiece;
-import chess.Color;
+import BordaGame.Borda;
+import Xadrez.ChessPiece;
+import Xadrez.Color;
 
 public class Rainha extends ChessPiece {
 
-  public Rainha(Board board, Color color){
+  public Rainha(Borda board, Color color){
     super(board, color);
   }
 

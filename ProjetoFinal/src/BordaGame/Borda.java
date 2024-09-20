@@ -1,19 +1,19 @@
-package BordGamer;
+package BordaGame;
 
-import chess.ChessPiece;
+import Xadrez.PecaXadrez;
 
-public class Board {
+public class Borda {
     private int rows;
     private int collumns;
-    private Piece[] [] pieces;
+    private Peca[] [] pieces;
 
-    public Board(int rows, int collumns) {
+    public Borda(int rows, int collumns) {
         if (rows < 1 || collumns < 1) {
-            throw new BoradExcepition("Erro ao criar tabuleiro  e necessario ter pelomenos 1 linha e 1 coluna"); 
+            throw new BoardExcepition("Erro ao criar tabuleiro  e necessario ter pelomenos 1 linha e 1 coluna"); 
         }
         this.rows = rows;
         this.collumns = collumns;
-        pieces = new Piece[rows][collumns]; // a matriz iniciara com a quantidades de linha e colunas informadas 
+        pieces = new Peca[rows][collumns]; // a matriz iniciara com a quantidades de linha e colunas informadas 
     }
     public int getRows() {
         return rows;
@@ -23,23 +23,23 @@ public class Board {
     }
    
 
-    public Piece piece(int row ,int column){
+    public Peca piece(int row ,int column){
         if(!positionExists(row ,column)){
-            throw new BoradExcepition("fora do tabuleiro  ");
+            throw new BoardExcepition("fora do tabuleiro  ");
         }
         return pieces[row] [column];
     }
-     public Piece piece(Position position){ // sobreposição do metodo piece
+     public Peca piece(Posicao position){ // sobreposição do metodo piece
         if(!positionExists(position)){
-            throw new BoradExcepition("Posição fora do tabuleiro  ");
+            throw new BoardExcepition("Posição fora do tabuleiro  ");
         }
          return pieces[position.getRow()] [position.getColumn()];
      }
 
 // metodo colocar peça no tabuleiro
-     public void  placePiece(Piece piece , Position position){ 
+     public void  placePiece(Peca piece , Posicao position){ 
        if (thereIsAPiece(position)) {
-        throw new BoradExcepition("Já tem uma peça nessa posição " + position);
+        throw new BoardExcepition("Já tem uma peça nessa posição " + position);
         
        } 
        
@@ -50,14 +50,14 @@ public class Board {
      /*
       * METODO REMOVER PEÇA DO TABULEIRO 
       */
-     public Piece removePiece(Position position){
+     public Peca removePiece(Posicao position){
         if(!positionExists(position)){
-            throw new BoradExcepition("Posição invalida ");
+            throw new BoardExcepition("Posição invalida ");
         }
         if(piece(position) == null){
             return null;
         }
-        Piece aux = piece(position);
+        Peca aux = piece(position);
         aux.position = null;
         pieces[position.getRow()][position.getColumn()]=null;
         
@@ -70,13 +70,13 @@ public class Board {
         return row >= 0 && row < rows && column >= 0 && column < collumns;
      }
 
-     public boolean positionExists(Position position){
+     public boolean positionExists(Posicao position){
         return positionExists(position.getRow(),position.getColumn());
      }
 
-     public boolean thereIsAPiece(Position position){
+     public boolean thereIsAPiece(Posicao position){
         if(!positionExists(position)){
-            throw new BoradExcepition("Posição fora do tabuleiro  ");
+            throw new BoardExcepition("Posição fora do tabuleiro  ");
         }
       return piece(position) != null;
      }

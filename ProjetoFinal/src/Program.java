@@ -1,12 +1,12 @@
 
 import java.util.*;
 import Aplication.IO;
-import BordGamer.Board;
-import BordGamer.Position;
-import chess.ChessExeption;
-import chess.ChessMatch;
-import chess.ChessPiece;
-import chess.ChessPosition;
+import BordaGame.Borda;
+import BordaGame.Posicao;
+import Xadrez.ChessExeption;
+import Xadrez.ChessMatch;
+import Xadrez.PecaXadrez;
+import Xadrez.ChessPosition;
 
 public class Program {
     public static void main(String[] args) throws Exception {
@@ -24,7 +24,7 @@ public class Program {
             System.out.println();
             System.out.println("POSIÇÃO DE DESTINO");
             ChessPosition target = IO.readChessPosition(sc);
-            ChessPiece capturedPiece = chessMatch.performChessMove(source,target);        
+            PecaXadrez capturedPiece = chessMatch.performChessMove(source,target);        
         }
         
      
