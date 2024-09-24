@@ -67,3 +67,5 @@ public class Program {
         ler.close();
     }
 }
+
+//-d bin -sourcepath src .\src\Program.java

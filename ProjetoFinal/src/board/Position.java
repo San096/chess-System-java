@@ -59,10 +59,7 @@ public class Position {
       return lowerCaseLetter - 'a';
     }
   
-    /**
-     * Nesse toString() a gente mostra a posição da seguinte forma: (A1, B2, C3, D4,
-     * E5, F6, G7, H8)
-     */
+    
     @Override
     public String toString() {
       char columnLetter = (char) (column + 'A');

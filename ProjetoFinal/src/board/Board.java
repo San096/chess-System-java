@@ -75,16 +75,7 @@ public class Board {
     }
   }
 
-  /**
-   * Essa função tem como objetivo analisar a posição de uma peça, lançando
-   * uma exceção caso o movimento seja inválido, em comparação com a função anterior
-   * essa é mais usada quando for analisar os movimentos de uma peça veja a função
-   * @see Board#showPossibleMoves Onde essa função é chamada
-   * 
-   * @param position Posição inicial da peça
-   * @throws BoardException    Caso uma das posições seja fora do tabuleiro
-   * @throws PositionException Caso a posição inicial for nula
-   */
+  
   private void analyseMovement(Position position) {
     if (!Position.isValidPosition(position)) {
       throw new BoardException("Posição fora do tabuleiro");
@@ -95,12 +86,7 @@ public class Board {
     }
   }
 
-  /**
-   * Realiza a transferencia de uma peça no array para outra posição
-   * 
-   * @param initialPosition Posição inicial da peça
-   * @param targetPosition  Posição final da peça
-   */
+  
   public ChessPiece movePiece(Position initialPosition, Position targetPosition) { // Lembrar de mover internamente a posição da peça
     this.analyseMovement(initialPosition, targetPosition);
 
@@ -118,11 +104,7 @@ public class Board {
     return board[position.getRow()][position.getColumn()] == null;
   }
 
-  /**
-   * Esse toString irá exibir a representação do tabuleiro no console
-   * 
-   * @return Representação do tabuleiro
-   */
+ 
   @Override
   public String toString() {
     String s = "    A    B    C    D    E    F    G    H\n";
@@ -140,12 +122,7 @@ public class Board {
     return s;
   }
 
-  /**
-   * Está função serve para exibir as possiveis movimentações de uma peça
-   * 
-   * @param position Posição da peça
-   * @return String contendo representação do tabuleiro com os movimentos possíveis
-   */
+  
   public String showPossibleMoves(Position position) {
     this.analyseMovement(position);
     ArrayList<String> possibleMoves = board[position.getRow()][position.getColumn()].getAvailableMoves(board, position);
@@ -170,12 +147,7 @@ public class Board {
     return s;
   }
 
-  /**
-   * Está função serve para pegar a peça contida naquela posição
-   * 
-   * @param position Posição da peça
-   * @return A peça contida naquela posição
-   */
+  
   public ChessPiece getPiece(Position position) {
     this.analyseMovement(position);
     return board[position.getRow()][position.getColumn()];
