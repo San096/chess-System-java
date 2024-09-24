@@ -1,7 +1,7 @@
-package Xadrez;
+package enums;
 
 public enum Color {
-    BLACK ,
+    BLACK,
     WHITE;
     
 }
